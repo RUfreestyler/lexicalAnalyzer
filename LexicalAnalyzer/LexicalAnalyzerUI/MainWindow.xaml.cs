@@ -53,7 +53,7 @@ namespace LexicalAnalyzerUI
                 return;
             }
 
-            for (int i = 0, symbolIndex = 0, rowIndex = 0; i < this.InputTextBox.Text.Length; i++, symbolIndex++)
+            for (int i = 0, symbolIndex = 0, rowIndex = 0; i < this.InputTextBox.Text.Length; i++)
             {
                 if (this.InputTextBox.Text[i] == '\r')
                 {
@@ -66,6 +66,10 @@ namespace LexicalAnalyzerUI
                     this.InputTextBox.Focus();
                     this.InputTextBox.Select(i, 1);
                     return;
+                }
+                else
+                {
+                    symbolIndex++;
                 }
             }
         }

@@ -56,7 +56,8 @@
             this.text = string.Join(string.Empty, text.Select(symbol => char.ToLower(symbol)));
             while (true)
             {
-                var whitespacesSkipped = this.SkipWhitespacesAndBreaklines();
+                this.SkipBreaklines();
+                var whitespacesSkipped = this.SkipWhitespaces();
                 this.currentToken = this.ReadNextToken();
                 if (this.currentToken == null)
                     return;
@@ -81,8 +82,8 @@
                         Row = this.currentSymbolRow,
                         Column = this.currentSymbolColumn + incorrectSymbolIndex
                     };
+                this.currentSymbolColumn += this.currentToken.Value.Length;
                 this.previousTokenType = this.currentToken.Type;
-                this.currentSymbolColumn += currentToken.Value.Length;
             }
         }
 
@@ -109,18 +110,13 @@
             var value = string.Empty;
             var tokenType = this.RecognizeTokenTypeSymbol(this.text.FirstOrDefault());
             if (tokenType == TokenType.Undefined)
-            {
-                this.text = string.Join(string.Empty, this.text.Skip(1));
-                this.currentSymbolColumn++;
                 return new UndefinedToken();
-            }
 
             foreach (var symbol in this.text)
             {
                 if (symbol == '\r')
                 {
-                    this.currentSymbolRow++;
-                    this.currentSymbolColumn = 1;
+                    this.SkipBreaklines();
                     this.text = string.Join(string.Empty, this.text.Skip(value.Length));
                     return this.GetTokenByTokenType(value, tokenType);
                 }
@@ -144,12 +140,23 @@
         /// Убрать пробелы и переносы строк перед словом.
         /// </summary>
         /// <returns>True, если был убран хотя бы один пробел или перенос, иначе false.</returns>
-        private bool SkipWhitespacesAndBreaklines()
+        private bool SkipWhitespaces()
         {
             var initialLength = this.text.Length;
-            this.text = string.Join(string.Empty, this.text.SkipWhile(symbol => symbol == ' ' || symbol == '\r' || symbol == '\n'));
+            this.text = string.Join(string.Empty, this.text.SkipWhile(symbol => symbol == ' '));
             this.currentSymbolColumn += initialLength - this.text.Length;
             return this.text.Length < initialLength;
+        }
+
+        /// <summary>
+        /// Убрать переносы строк перед словом.
+        /// </summary>
+        private void SkipBreaklines()
+        {
+            var initialLength = this.text.Length;
+            this.text = string.Join(string.Empty, this.text.SkipWhile(symbol => symbol == '\r' || symbol == '\n'));
+            this.currentSymbolRow += (initialLength - this.text.Length) / 2;
+            this.currentSymbolColumn = this.text.Length < initialLength ? 1 : this.currentSymbolColumn;
         }
 
         /// <summary>
