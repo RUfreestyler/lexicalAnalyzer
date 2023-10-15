@@ -5,8 +5,14 @@
     /// </summary>
     public abstract class TokenBase
     {
+        /// <summary>
+        /// Тип токена.
+        /// </summary>
         public TokenType Type { get; protected set; } = TokenType.Undefined;
 
+        /// <summary>
+        /// Значение токена.
+        /// </summary>
         public string Value { get; protected set; } = string.Empty;
 
         /// <summary>

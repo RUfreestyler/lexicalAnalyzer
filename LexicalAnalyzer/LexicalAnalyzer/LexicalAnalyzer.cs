@@ -5,21 +5,45 @@
     /// </summary>
     public class LexicalAnalyzer
     {
+        /// <summary>
+        /// Символ комментария.
+        /// </summary>
         private const char commentSymbol = '\'';
 
+        /// <summary>
+        /// Текущий обрабатываемый токен.
+        /// </summary>
         private TokenBase currentToken;
 
+        /// <summary>
+        /// Тип предыдущего токена.
+        /// </summary>
         private TokenType previousTokenType = TokenType.Undefined;
 
+        /// <summary>
+        /// Текущая строка. Отсчет начинается с 1.
+        /// </summary>
         private int currentSymbolRow = 1;
 
+        /// <summary>
+        /// Номер первого символа, текущего токена. Отсчет начинается с 1.
+        /// </summary>
         private int currentSymbolColumn = 1;
 
+        /// <summary>
+        /// Символы, относящиеся к бинарному токену.
+        /// </summary>
         private char[] binaries = new char[] { '0', '1' };
 
+        /// <summary>
+        /// Символы, относящиеся к буквенному токену.
+        /// </summary>
         private char[] literals = new char[] { 'a', 'b', 'c', 'd' };
 
-        private string text;
+        /// <summary>
+        /// Обрабатываемый текст.
+        /// </summary>
+        private string text = string.Empty;
 
         /// <summary>
         /// Проверить текст на корректность.
@@ -32,7 +56,7 @@
             this.text = string.Join(string.Empty, text.Select(symbol => char.ToLower(symbol)));
             while (true)
             {
-                var whitespacesSkipped = this.SkipWhitespaces();
+                var whitespacesSkipped = this.SkipWhitespacesAndBreaklines();
                 this.currentToken = this.ReadNextToken();
                 if (this.currentToken == null)
                     return;
@@ -58,7 +82,7 @@
                         Column = this.currentSymbolColumn + incorrectSymbolIndex
                     };
                 this.previousTokenType = this.currentToken.Type;
-                this.currentSymbolColumn += currentToken.Value.Length - 1;
+                this.currentSymbolColumn += currentToken.Value.Length;
             }
         }
 
@@ -117,13 +141,14 @@
         }
 
         /// <summary>
-        /// Убрать пробелы перед словом.
+        /// Убрать пробелы и переносы строк перед словом.
         /// </summary>
-        /// <returns>True, если был убран хотя бы один пробел, иначе false.</returns>
-        private bool SkipWhitespaces()
+        /// <returns>True, если был убран хотя бы один пробел или перенос, иначе false.</returns>
+        private bool SkipWhitespacesAndBreaklines()
         {
             var initialLength = this.text.Length;
             this.text = string.Join(string.Empty, this.text.SkipWhile(symbol => symbol == ' ' || symbol == '\r' || symbol == '\n'));
+            this.currentSymbolColumn += initialLength - this.text.Length;
             return this.text.Length < initialLength;
         }
 
@@ -165,10 +190,6 @@
                 default:
                     throw new NotSupportedException($"Тип токена {type} не поддерживается.");
             }
-        }
-
-        private void ValidateSymbol(char  symbol) 
-        {
         }
     }
 }

@@ -1,16 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LexicalAnalyzer
+﻿namespace LexicalAnalyzer
 {
+    /// <summary>
+    /// Тип токена.
+    /// </summary>
     public enum TokenType
     {
+        /// <summary>
+        /// Бинарный.
+        /// </summary>
         Binary,
+
+        /// <summary>
+        /// Буквенный.
+        /// </summary>
         Literal,
+
+        /// <summary>
+        /// Комментарий.
+        /// </summary>
         Comment,
+
+        /// <summary>
+        /// Неопределенный.
+        /// </summary>
         Undefined
     }
 }

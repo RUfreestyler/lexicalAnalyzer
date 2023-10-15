@@ -59,8 +59,9 @@ namespace LexicalAnalyzerUI
                 {
                     i++;
                     rowIndex++;
+                    symbolIndex = 0;
                 }
-                if (symbolIndex + 1 == col && rowIndex + 1 == row)
+                else if (symbolIndex + 1 == col && rowIndex + 1 == row)
                 {
                     this.InputTextBox.Focus();
                     this.InputTextBox.Select(i, 1);

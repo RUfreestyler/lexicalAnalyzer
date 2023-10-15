@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LexicalAnalyzer
+﻿namespace LexicalAnalyzer
 {
+    /// <summary>
+    /// Неопределенный токен.
+    /// </summary>
     public class UndefinedToken : TokenBase
     {
         public override int Validate()
