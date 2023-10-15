@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net7.0-windows7.0": {}
+    "net7.0-windows7.0": {
+      "LexicalAnalyzer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/LexicalAnalyzer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LexicalAnalyzer.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "LexicalAnalyzer/1.0.0": {
+      "type": "project",
+      "path": "../LexicalAnalyzer/LexicalAnalyzer.csproj",
+      "msbuildProject": "../LexicalAnalyzer/LexicalAnalyzer.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0-windows7.0": []
+    "net7.0-windows7.0": [
+      "LexicalAnalyzer >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\vladm\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "F:\\Documents\\istu\\Формальные языки\\лаб1\\lexicalAnalyzer\\LexicalAnalyzer\\LexicalAnalyzer\\LexicalAnalyzer.csproj": {
+              "projectPath": "F:\\Documents\\istu\\Формальные языки\\лаб1\\lexicalAnalyzer\\LexicalAnalyzer\\LexicalAnalyzer\\LexicalAnalyzer.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -1,0 +1,12 @@
+F:\Documents\istu\Формальные языки\лаб1\lexicalAnalyzer\LexicalAnalyzer\LexicalAnalyzer\obj\Debug\net7.0\LexicalAnalyzer.csproj.AssemblyReference.cache
+F:\Documents\istu\Формальные языки\лаб1\lexicalAnalyzer\LexicalAnalyzer\LexicalAnalyzer\obj\Debug\net7.0\LexicalAnalyzer.GeneratedMSBuildEditorConfig.editorconfig
+F:\Documents\istu\Формальные языки\лаб1\lexicalAnalyzer\LexicalAnalyzer\LexicalAnalyzer\obj\Debug\net7.0\LexicalAnalyzer.AssemblyInfoInputs.cache
+F:\Documents\istu\Формальные языки\лаб1\lexicalAnalyzer\LexicalAnalyzer\LexicalAnalyzer\obj\Debug\net7.0\LexicalAnalyzer.AssemblyInfo.cs
+F:\Documents\istu\Формальные языки\лаб1\lexicalAnalyzer\LexicalAnalyzer\LexicalAnalyzer\obj\Debug\net7.0\LexicalAnalyzer.csproj.CoreCompileInputs.cache
+F:\Documents\istu\Формальные языки\лаб1\lexicalAnalyzer\LexicalAnalyzer\LexicalAnalyzer\bin\Debug\net7.0\LexicalAnalyzer.deps.json
+F:\Documents\istu\Формальные языки\лаб1\lexicalAnalyzer\LexicalAnalyzer\LexicalAnalyzer\bin\Debug\net7.0\LexicalAnalyzer.dll
+F:\Documents\istu\Формальные языки\лаб1\lexicalAnalyzer\LexicalAnalyzer\LexicalAnalyzer\bin\Debug\net7.0\LexicalAnalyzer.pdb
+F:\Documents\istu\Формальные языки\лаб1\lexicalAnalyzer\LexicalAnalyzer\LexicalAnalyzer\obj\Debug\net7.0\LexicalAnalyzer.dll
+F:\Documents\istu\Формальные языки\лаб1\lexicalAnalyzer\LexicalAnalyzer\LexicalAnalyzer\obj\Debug\net7.0\refint\LexicalAnalyzer.dll
+F:\Documents\istu\Формальные языки\лаб1\lexicalAnalyzer\LexicalAnalyzer\LexicalAnalyzer\obj\Debug\net7.0\LexicalAnalyzer.pdb
+F:\Documents\istu\Формальные языки\лаб1\lexicalAnalyzer\LexicalAnalyzer\LexicalAnalyzer\obj\Debug\net7.0\ref\LexicalAnalyzer.dll

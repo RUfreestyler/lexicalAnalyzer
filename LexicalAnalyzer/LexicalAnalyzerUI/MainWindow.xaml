@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LexicalAnalyzerUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Лексический анализатор" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBox Grid.Column="0" Name="InputTextBox" AcceptsReturn="True">
+            
+        </TextBox>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Name="OutputTextBlock" TextWrapping="Wrap"></TextBlock>
+            <Button Grid.Row="1" Content="Проверить текст" Click="Button_Click" Margin="10"></Button>
+        </Grid>
     </Grid>
 </Window>
