@@ -33,7 +33,7 @@ namespace LexicalAnalyzerUI
             this.OutputTextBlock.Text = string.Empty;
             try
             {
-                var inputText = this.InputTextBox.Text.Trim();
+                var inputText = this.InputTextBox.Text;
                 new LexicalAnalyzer.LexicalAnalyzer().ValidateText(inputText);
             }
             catch (InvalidTokenException ex)
